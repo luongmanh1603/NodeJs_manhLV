@@ -1,0 +1,37 @@
+<h1>Student Management</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>GPA</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#if students.length}}
+        {{#each students}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{email}}</td>
+                <td>{{phone}}</td>
+                <td>{{gpa}}</td>
+                <td>{{status}}</td>
+                <td>
+                    <button><a href="/edit/{{this._id}}">Edit</a></button>
+                    <button><a href="/delete/{{this._id}}">Delete</a></button>
+                </td>
+            </tr>
+        {{/each}}
+        {{else}}
+            <tr>
+                <td colspan="6">No students available.</td>
+            </tr>
+        {{/if}}
+    </tbody>
+</table>
+
+<button><a href="/add">Add Student</a></button>
